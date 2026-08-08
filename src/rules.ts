@@ -35,12 +35,6 @@ const baseRules = [
     `GEOSITE,microsoft,${PROXY_GROUPS.MICROSOFT}`,
     `GEOSITE,google,${PROXY_GROUPS.GOOGLE}`,
     `RULE-SET,Crypto,${PROXY_GROUPS.CRYPTO}`,
-    // Polymarket 内联规则:不依赖 rule-provider 24h 轮询,覆写更新即生效
-    `DOMAIN-SUFFIX,polymarket.com,${PROXY_GROUPS.CRYPTO}`,
-    `DOMAIN-SUFFIX,polymarket.cash,${PROXY_GROUPS.CRYPTO}`,
-    `DOMAIN-SUFFIX,polymarket.app,${PROXY_GROUPS.CRYPTO}`,
-    `DOMAIN-SUFFIX,polymarket.gg,${PROXY_GROUPS.CRYPTO}`,
-    `DOMAIN-SUFFIX,poly.market,${PROXY_GROUPS.CRYPTO}`,
     `RULE-SET,GFWList,${PROXY_GROUPS.SELECT}`,
     `GEOIP,cn,DIRECT`,
     `MATCH,${PROXY_GROUPS.FINAL}`,
