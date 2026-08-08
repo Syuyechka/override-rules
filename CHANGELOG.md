@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.5.9](https://github.com/powerfullz/override-rules/compare/src-v2.5.8...src-v2.5.9) (2026-08-08)
+
+
+### Features
+
+- Polymarket 域名内联进规则列表,不依赖 rule-provider 24h 轮询即时生效 ([c6effe6](https://github.com/powerfullz/override-rules/commit/c6effe605e3413c269e8186346a1fba554f8ebac))
 ## [2.5.8](https://github.com/powerfullz/override-rules/compare/src-v2.5.7...src-v2.5.8) (2026-08-08)
 
 
