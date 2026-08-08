@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.5.8](https://github.com/powerfullz/override-rules/compare/src-v2.5.7...src-v2.5.8) (2026-08-08)
+
+
+### CI
+
+- Purge 增加 @dist 精确变体,修复版本化缓存清不掉的问题 ([6fb9de3](https://github.com/powerfullz/override-rules/commit/6fb9de3b19aa5a5e73f09828880bc2b67b710366))
+
+
+### Features
+
+- 加密货币组补全 Polymarket 官方域名(poly.market/polymarket.app/polymarket.gg) ([311ccb1](https://github.com/powerfullz/override-rules/commit/311ccb1c4028ae539c6e819b5ea71c54d4402ac0))
 ## [2.5.7](https://github.com/powerfullz/override-rules/compare/src-v2.5.6...src-v2.5.7) (2026-08-08)
 
 
