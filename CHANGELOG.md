@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.5.6](https://github.com/powerfullz/override-rules/compare/src-v2.5.5...src-v2.5.6) (2026-08-08)
+
+
+### Features
+
+- 默认 threshold 改为 1,自建单节点地区也生成分组 ([b3b8372](https://github.com/powerfullz/override-rules/commit/b3b8372845691d3618cc4fd8d331cda5cd330f2c))
 ## [2.5.5](https://github.com/powerfullz/override-rules/compare/src-v2.5.4...src-v2.5.5) (2026-06-30)
 
 
