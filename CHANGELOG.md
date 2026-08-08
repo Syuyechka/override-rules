@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.5.7](https://github.com/powerfullz/override-rules/compare/src-v2.5.6...src-v2.5.7) (2026-08-08)
+
+
+### Features
+
+- 加密货币组加入 Polymarket 域名;修复规则集/图标 URL 指向上游问题(改为本 fork @main);发布流程增加规则集 CDN purge ([f1146ec](https://github.com/powerfullz/override-rules/commit/f1146ecf10d10f12eba9dd8f86522414ba165073))
 ## [2.5.6](https://github.com/powerfullz/override-rules/compare/src-v2.5.5...src-v2.5.6) (2026-08-08)
 
 
