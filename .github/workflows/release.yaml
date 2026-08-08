@@ -167,7 +167,9 @@ jobs:
         run: |
           set -euo pipefail
 
+          # purge 必须带 @dist/@tag 精确变体，否则清不到版本化缓存
           curl -fsS "https://purge.jsdelivr.net/gh/${{ github.repository }}/convert.min.js"
+          curl -fsS "https://purge.jsdelivr.net/gh/${{ github.repository }}@dist/convert.min.js"
           curl -fsS "https://purge.jsdelivr.net/gh/${{ github.repository }}@${{ env.VERSION }}/convert.min.js"
 
           # rule-providers 引用的 ruleset 文件来自 @main 分支，一并清理 CDN 缓存
