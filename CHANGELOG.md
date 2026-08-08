@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.5.10](https://github.com/powerfullz/override-rules/compare/src-v2.5.9...src-v2.5.10) (2026-08-08)
+
+
+### Refactoring
+
+- 移除 polymarket 内联规则,域名统一收敛到 ruleset/Crypto.list ([3ecd36f](https://github.com/powerfullz/override-rules/commit/3ecd36fd268e74d777feb6b3ce8ce5608bbc5ac4))
 ## [2.5.9](https://github.com/powerfullz/override-rules/compare/src-v2.5.8...src-v2.5.9) (2026-08-08)
 
 
