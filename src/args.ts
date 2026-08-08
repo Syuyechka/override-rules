@@ -32,6 +32,6 @@ export function buildFeatureFlags(args: ScriptArgs): FeatureFlags {
         quicEnabled: parseBool(args.quic),
         regexFilter: parseBool(args.regex),
         tunEnabled: parseBool(args.tun),
-        countryThreshold: parseNumber(args.threshold, 2),
+        countryThreshold: parseNumber(args.threshold, 1),
     };
 }

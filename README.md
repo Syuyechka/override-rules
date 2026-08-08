@@ -64,7 +64,7 @@
 *   `quic`：允许 QUIC 流量（UDP 443，默认 false）[^quic]
 *   `regex`：各国家/地区代理组改用 `include-all` + 正则过滤模式，由 Mihomo 内核在运行时按正则动态筛选节点，而非在脚本执行时枚举节点名称（默认 false）[^regex]
 *   `tun`：启用 TUN 模式（gvisor 栈，自动配置路由排除地址与 DNS 劫持，默认 false）
-*   `threshold`：国家/地区节点数量小于该值时不显示分组（默认 2）
+*   `threshold`：国家/地区节点数量小于该值时不显示分组（默认 1，自建单节点地区也能显示分组）
 
 > **向后兼容**：旧的 `loadbalance` 参数仍然可用。当 `grouptype` 未指定时，`loadbalance=true` 等价于 `grouptype=2`，`loadbalance=false` 等价于 `grouptype=1`。
 
