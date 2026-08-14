@@ -173,6 +173,6 @@ jobs:
           curl -fsS "https://purge.jsdelivr.net/gh/${{ github.repository }}@${{ env.VERSION }}/convert.min.js"
 
           # rule-providers 引用的 ruleset 文件来自 @main 分支，一并清理 CDN 缓存
-          for f in TikTok EHentai SteamFix FirebaseCloudMessaging AdditionalFilter AdditionalCDNResources Crypto Weibo; do
+          for f in TikTok EHentai SteamFix FirebaseCloudMessaging AdditionalFilter AdditionalCDNResources Crypto Weibo Zoom; do
             curl -fsS "https://purge.jsdelivr.net/gh/${{ github.repository }}@main/ruleset/$f.list"
           done

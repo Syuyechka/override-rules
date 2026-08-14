@@ -1,0 +1,9 @@
+# Zoom
+# 主站/API/会议媒体(含 app/api 等全部子域)
+DOMAIN-SUFFIX,zoom.us
+# 品牌/公司站
+DOMAIN-SUFFIX,zoom.com
+# 中国版
+DOMAIN-SUFFIX,zoom.com.cn
+# 政府版
+DOMAIN-SUFFIX,zoomgov.com

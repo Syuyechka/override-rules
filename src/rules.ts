@@ -35,6 +35,7 @@ const baseRules = [
     `GEOSITE,microsoft,${PROXY_GROUPS.MICROSOFT}`,
     `GEOSITE,google,${PROXY_GROUPS.GOOGLE}`,
     `RULE-SET,Crypto,${PROXY_GROUPS.CRYPTO}`,
+    `RULE-SET,Zoom,${PROXY_GROUPS.ZOOM}`,
     `RULE-SET,GFWList,${PROXY_GROUPS.SELECT}`,
     `GEOIP,cn,DIRECT`,
     `MATCH,${PROXY_GROUPS.FINAL}`,

@@ -90,6 +90,14 @@ export const ruleProviders: Record<string, RuleProvider> = {
         url: `${CDN_URL}/gh/Syuyechka/override-rules@main/ruleset/Crypto.list`,
         path: "./ruleset/Crypto.list",
     },
+    Zoom: {
+        type: "http",
+        behavior: "classical",
+        format: "text",
+        interval: 86400,
+        url: `${CDN_URL}/gh/Syuyechka/override-rules@main/ruleset/Zoom.list`,
+        path: "./ruleset/Zoom.list",
+    },
     Weibo: {
         type: "http",
         behavior: "classical",
