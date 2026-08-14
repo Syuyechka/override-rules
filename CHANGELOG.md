@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.5.11](https://github.com/powerfullz/override-rules/compare/src-v2.5.10...src-v2.5.11) (2026-08-14)
+
+
+### Features
+
+- 新增 Zoom 代理组(日本/韩国/美国/香港/DIRECT),自托管品牌图标 ([8c10940](https://github.com/powerfullz/override-rules/commit/8c10940c30ce61ccf3d0a0a9a724fc9661d543f6))
 ## [2.5.10](https://github.com/powerfullz/override-rules/compare/src-v2.5.9...src-v2.5.10) (2026-08-08)
 
 
