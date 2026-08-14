@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.5.12](https://github.com/powerfullz/override-rules/compare/src-v2.5.11...src-v2.5.12) (2026-08-14)
+
+
+### Features
+
+- Zoom 自动分流(Zoom.list 规则集:zoom.us/com/com.cn/gov)→ Zoom 代理组 ([38f9cc4](https://github.com/powerfullz/override-rules/commit/38f9cc4de95135ac01772e854032e0c0a5596a6e))
 ## [2.5.11](https://github.com/powerfullz/override-rules/compare/src-v2.5.10...src-v2.5.11) (2026-08-14)
 
 
