@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.5.13](https://github.com/powerfullz/override-rules/compare/src-v2.5.12...src-v2.5.13) (2026-09-07)
+
+
+### Other
+
+- 香港节点组固定为 select 手动选择 ([a9d802d](https://github.com/powerfullz/override-rules/commit/a9d802d69bcc3c47ed946c6b209a03a31845ed20))
 ## [2.5.12](https://github.com/powerfullz/override-rules/compare/src-v2.5.11...src-v2.5.12) (2026-08-14)
 
 
