@@ -315,7 +315,8 @@ export function buildProxyGroups({
             return buildGroupByType({
                 name: `${country}${NODE_SUFFIX}`,
                 icon: meta.icon,
-                groupType,
+                // 香港节点固定手动选择(select),不随全局 grouptype 走
+                groupType: country === "香港" ? 0 : groupType,
                 nodeSource,
             });
         }),
