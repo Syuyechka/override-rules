@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.5.14](https://github.com/powerfullz/override-rules/compare/src-v2.5.13...src-v2.5.14) (2026-09-16)
+
+
+### Other
+
+- Add bitget.com to Crypto list ([dc36a83](https://github.com/powerfullz/override-rules/commit/dc36a832890285787bc70fd09c356ddbc4f57a58))
 ## [2.5.13](https://github.com/powerfullz/override-rules/compare/src-v2.5.12...src-v2.5.13) (2026-09-07)
 
 
