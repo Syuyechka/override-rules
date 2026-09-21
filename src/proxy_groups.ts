@@ -7,7 +7,7 @@ import {
     countriesMeta,
 } from "./constants";
 import type { BuildProxyGroupsInput, GroupType, ProxyGroup } from "./types";
-import { buildList, isNotNull } from "./utils";
+import { isNotNull } from "./utils";
 
 interface BuildGroupByTypeInput {
     name: string;
