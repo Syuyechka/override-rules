@@ -76,8 +76,6 @@ export function buildProxyGroups({
     const hasTW = countryNames.includes("台湾");
     const hasHK = countryNames.includes("香港");
     const hasUS = countryNames.includes("美国");
-    const hasJP = countryNames.includes("日本");
-    const hasKR = countryNames.includes("韩国");
     const groups: Array<ProxyGroup | null> = [
         {
             name: PROXY_GROUPS.SELECT,
@@ -237,18 +235,6 @@ export function buildProxyGroups({
             icon: `${CDN_URL}/gh/Syuyechka/override-rules@main/icons/PikPak.png`,
             type: "select",
             proxies: defaultProxies,
-        },
-        {
-            name: PROXY_GROUPS.ZOOM,
-            icon: `${CDN_URL}/gh/Syuyechka/override-rules@main/icons/Zoom.png`,
-            type: "select",
-            proxies: buildList(
-                hasJP && "日本节点",
-                hasKR && "韩国节点",
-                hasUS && "美国节点",
-                hasHK && "香港节点",
-                "DIRECT"
-            ),
         },
         {
             name: PROXY_GROUPS.SOGOU_INPUT,
