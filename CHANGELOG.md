@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.5.15](https://github.com/powerfullz/override-rules/compare/src-v2.5.14...src-v2.5.15) (2026-09-21)
+
+
+### Features
+
+- Remove Zoom proxy group ([529c3e6](https://github.com/powerfullz/override-rules/commit/529c3e69f79084e8fa288ace1d9ac140d8a5a140))
 ## [2.5.14](https://github.com/powerfullz/override-rules/compare/src-v2.5.13...src-v2.5.14) (2026-09-16)
 
 
