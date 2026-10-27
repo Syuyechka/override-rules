@@ -97,6 +97,14 @@ export const ruleSets = {
         url: `${CDN_URL}/gh/powerfullz/override-rules@master/ruleset/Weibo.list`,
         path: "./ruleset/Weibo.list",
     },
+    WeChat: {
+        type: "http",
+        behavior: "classical",
+        format: "yaml",
+        interval: 86400,
+        url: `${CDN_URL}/gh/blackmatrix7/ios_rule_script@master/rule/Clash/WeChat/WeChat.yaml`,
+        path: "./ruleset/WeChat.yaml",
+    },
     GFWList: {
         type: "http",
         behavior: "domain",

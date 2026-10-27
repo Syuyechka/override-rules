@@ -29,6 +29,7 @@ export function buildRules({ quicEnabled, hasTailscale }: BuildRulesInput): stri
         ruleSet("ADBlock", PROXY_GROUPS.AD_BLOCK),
         ruleSet("AdditionalFilter", PROXY_GROUPS.AD_BLOCK),
         ruleSet("SogouInput", PROXY_GROUPS.SOGOU_INPUT),
+        ruleSet("WeChat", PROXY_GROUPS.WECHAT),
         `DOMAIN-SUFFIX,truthsocial.com,${PROXY_GROUPS.TRUTH_SOCIAL}`,
         ruleSet("StaticResources", PROXY_GROUPS.STATIC_RESOURCES),
         ruleSet("CDNResources", PROXY_GROUPS.STATIC_RESOURCES),

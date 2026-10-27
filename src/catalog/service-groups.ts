@@ -180,4 +180,9 @@ export const serviceGroups: ServiceGroupDef[] = [
         icon: ICONS.sogouInput,
         proxies: () => ["DIRECT", "REJECT"],
     },
+    {
+        name: PROXY_GROUPS.WECHAT,
+        icon: ICONS.wechat,
+        proxies: () => [PROXY_GROUPS.SELECT, "DIRECT"],
+    },
 ];

@@ -7,7 +7,7 @@
  * - 构造工厂：`domain/proxy-group.ts`
  */
 
-import { countriesMeta } from "../catalog/countries";
+import { countriesMeta, COUNTRY_KEYS } from "../catalog/countries";
 import { countryGroupName, PROXY_GROUPS } from "../catalog/group-names";
 import { ICONS } from "../catalog/icons";
 import { LOW_COST_NODE_MATCHER } from "../catalog/low-cost";
@@ -119,7 +119,8 @@ function buildRegionGroups(ctx: GroupBuildContext): Array<ProxyGroup | null> {
         return buildGroupByType({
             name: countryGroupName(country),
             icon: meta.icon,
-            groupType: flags.groupType,
+            // 香港节点固定手动选择(select)，不随全局 grouptype 参数走
+            groupType: country === COUNTRY_KEYS.hongKong ? 0 : flags.groupType,
             nodeSource,
         });
     });

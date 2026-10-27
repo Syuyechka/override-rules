@@ -38,6 +38,7 @@ export const PROXY_GROUPS = {
     WEIBO: "新浪微博",
     PIKPAK: "PikPak网盘",
     SOGOU_INPUT: "搜狗输入法",
+    WECHAT: "微信消息",
     AD_BLOCK: "广告拦截",
     GLOBAL: "GLOBAL",
     FINAL: "Final",

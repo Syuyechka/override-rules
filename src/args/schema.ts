@@ -6,8 +6,8 @@
 export const ARG_DEFAULTS = {
     /** 地区代理组类型：0=select，1=url-test，2=load-balance。 */
     groupType: 1,
-    /** 地区节点数量小于该值时不生成地区组。 */
-    countryThreshold: 2,
+    /** 地区节点数量小于该值时不生成地区组（1 = 单节点地区也成组，如只有一台的韩国）。 */
+    countryThreshold: 1,
     /** 默认使用 fake-ip 增强模式。 */
     fakeIPEnabled: true,
 } as const;
