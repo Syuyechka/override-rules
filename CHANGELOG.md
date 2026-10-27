@@ -1,70 +1,218 @@
 # Changelog
 
-## [2.5.15](https://github.com/powerfullz/override-rules/compare/src-v2.5.14...src-v2.5.15) (2026-09-21)
+## [2.9.1](https://github.com/powerfullz/override-rules/compare/src-v2.9.0...src-v2.9.1) (2026-10-25)
 
 
 ### Features
 
-- Remove Zoom proxy group ([529c3e6](https://github.com/powerfullz/override-rules/commit/529c3e69f79084e8fa288ace1d9ac140d8a5a140))
-## [2.5.14](https://github.com/powerfullz/override-rules/compare/src-v2.5.13...src-v2.5.14) (2026-09-16)
+- Tailscale 代理组现在会自动隐藏 ([360ac8f](https://github.com/powerfullz/override-rules/commit/360ac8fa02e805a638c362648ccb27831fe73921))
+- Tun模式默认网络栈采用 mips ([193be43](https://github.com/powerfullz/override-rules/commit/193be43f8fd12f707401782090202abe76e77038))
+## [2.9.0](https://github.com/powerfullz/override-rules/compare/src-v2.8.2...src-v2.9.0) (2026-10-25)
+
+
+### Bug Fixes
+
+- 空代理组候选统一回退 DIRECT ([a4e3407](https://github.com/powerfullz/override-rules/commit/a4e34078909c341b6d5fd9702a7cd910d4d8c8cd))
+
+
+### Chores
+
+- Use a more intuitive name for `selectors.ts` ([a3d2000](https://github.com/powerfullz/override-rules/commit/a3d20005abd9379c9360290fc300fd078df3fbc1))
+
+
+### Documentation
+
+- Update docs ([a161662](https://github.com/powerfullz/override-rules/commit/a161662b6c8aa5aafddb5985078f39ade5531a2b))
+- 同步静态资源组低倍率优先说明 ([131c1d1](https://github.com/powerfullz/override-rules/commit/131c1d14a6f4aa72bfa2f6398ed22c10e515d5d1))
+- 同步服务组扁平化说明 ([2c20198](https://github.com/powerfullz/override-rules/commit/2c20198dc41842839f41f866f8d5e3564f440c2c))
+- 同步展平模式手动选择组说明 ([044a25a](https://github.com/powerfullz/override-rules/commit/044a25ac130f5ce4f9cdd244c6cdebe7d4a0e40c))
+- 说明空代理组兜底行为 ([81d4920](https://github.com/powerfullz/override-rules/commit/81d4920d840c5ab094be8eea6448b82788fcec27))
+
+
+### Features
+
+- 静态资源组优先使用低倍率节点 ([8c5a40b](https://github.com/powerfullz/override-rules/commit/8c5a40b519d896cba1f4578c81459aed650b4516))
+- 展平模式下服务组直接使用节点候选 ([7f6adc2](https://github.com/powerfullz/override-rules/commit/7f6adc21f9c74e5b30e9a7f4b75711421f93605f))
+- 展平模式移除手动选择组 ([209bcf6](https://github.com/powerfullz/override-rules/commit/209bcf6f38cdbc352be7e1995794eb47e64bb9ad))
 
 
 ### Other
 
-- Add bitget.com to Crypto list ([dc36a83](https://github.com/powerfullz/override-rules/commit/dc36a832890285787bc70fd09c356ddbc4f57a58))
-## [2.5.13](https://github.com/powerfullz/override-rules/compare/src-v2.5.12...src-v2.5.13) (2026-09-07)
+- 合并主线并保留代理组兜底决策 ([afe2e89](https://github.com/powerfullz/override-rules/commit/afe2e89438f152a25f5b392f51c66f2ca5414ba0))
+## [2.8.2](https://github.com/powerfullz/override-rules/compare/src-v2.8.1...src-v2.8.2) (2026-10-21)
 
 
-### Other
+### Bug Fixes
 
-- 香港节点组固定为 select 手动选择 ([a9d802d](https://github.com/powerfullz/override-rules/commit/a9d802d69bcc3c47ed946c6b209a03a31845ed20))
-## [2.5.12](https://github.com/powerfullz/override-rules/compare/src-v2.5.11...src-v2.5.12) (2026-08-14)
+- 静态 YAML 的手动选择组改用 include-all ([5dbf0dd](https://github.com/powerfullz/override-rules/commit/5dbf0ddd993c427945121410bb0168609d179430))
+
+
+### Documentation
+
+- 同步 regex 模式对「手动选择」组的说明 ([b6f16e2](https://github.com/powerfullz/override-rules/commit/b6f16e24a08782bbae3f1e7fc92bd400d8740e15))
+## [2.8.1](https://github.com/powerfullz/override-rules/compare/src-v2.8.0...src-v2.8.1) (2026-10-21)
+
+
+### Bug Fixes
+
+- Correct the logic of the previous fix ([cdaa300](https://github.com/powerfullz/override-rules/commit/cdaa300af461954fe21998fa076658915b244499))
+- DIRECT and manual proxy group now only show up when no country groups are available ([f9c1aa9](https://github.com/powerfullz/override-rules/commit/f9c1aa998f028eb30e22b96d9c2e69f4212dc740))
+
+
+### Chores
+
+- Add `.editorconfig` ([9a78daa](https://github.com/powerfullz/override-rules/commit/9a78daa6d70aaf81bec81b9ae1294727a22716ad))
+- 去除 AI Sop 词语 ([8cc4db8](https://github.com/powerfullz/override-rules/commit/8cc4db81f5507c2fb09503b87df661633f6a2ab7))
+
+
+### Documentation
+
+- 同步地区组展平行为说明 ([bbd556d](https://github.com/powerfullz/override-rules/commit/bbd556d0566559da669499ec0e878aa7440a76e5))
+- 定稿地区组展平方案 (issue #64) ([7e96280](https://github.com/powerfullz/override-rules/commit/7e96280caa1542afb50121b6d6b994dd214e90b0))
 
 
 ### Features
 
-- Zoom 自动分流(Zoom.list 规则集:zoom.us/com/com.cn/gov)→ Zoom 代理组 ([38f9cc4](https://github.com/powerfullz/override-rules/commit/38f9cc4de95135ac01772e854032e0c0a5596a6e))
-## [2.5.11](https://github.com/powerfullz/override-rules/compare/src-v2.5.10...src-v2.5.11) (2026-08-14)
+- 展平不足两个地区的代理组结构 ([e59519d](https://github.com/powerfullz/override-rules/commit/e59519dfe20ccad351a2bd1003a73beb7b542b02))
+## [2.8.0](https://github.com/powerfullz/override-rules/compare/src-v2.7.6...src-v2.8.0) (2026-10-20)
 
 
-### Features
+### Bug Fixes
 
-- 新增 Zoom 代理组(日本/韩国/美国/香港/DIRECT),自托管品牌图标 ([8c10940](https://github.com/powerfullz/override-rules/commit/8c10940c30ce61ccf3d0a0a9a724fc9661d543f6))
-## [2.5.10](https://github.com/powerfullz/override-rules/compare/src-v2.5.9...src-v2.5.10) (2026-08-08)
+- 修复无地区组时 fallback 空 proxies 导致的启动报错 ([0e85728](https://github.com/powerfullz/override-rules/commit/0e857289b9e4e5caa410231d1ba40af1f82477bc))
+
+
+### Documentation
+
+- 添加地区组展平优化草案 (issue #64) ([411920e](https://github.com/powerfullz/override-rules/commit/411920e78f895dd74e123db7a0b66c4966134f16))
+- 同步模块化重构后的结构说明 ([22ea62b](https://github.com/powerfullz/override-rules/commit/22ea62bc805dc4341eb7f7e0daee47c52f9153a3))
 
 
 ### Refactoring
 
-- 移除 polymarket 内联规则,域名统一收敛到 ruleset/Crypto.list ([3ecd36f](https://github.com/powerfullz/override-rules/commit/3ecd36fd268e74d777feb6b3ce8ce5608bbc5ac4))
-## [2.5.9](https://github.com/powerfullz/override-rules/compare/src-v2.5.8...src-v2.5.9) (2026-08-08)
+- 重构 src 为分层模块化结构并统一命名为 Clash ([ca26023](https://github.com/powerfullz/override-rules/commit/ca260233409049d48e9b12ffa8b729f3ab905cca))
 
 
-### Features
+### Testing
 
-- Polymarket 域名内联进规则列表,不依赖 rule-provider 24h 轮询即时生效 ([c6effe6](https://github.com/powerfullz/override-rules/commit/c6effe605e3413c269e8186346a1fba554f8ebac))
-## [2.5.8](https://github.com/powerfullz/override-rules/compare/src-v2.5.7...src-v2.5.8) (2026-08-08)
+- 添加核心逻辑单元测试 ([9902b55](https://github.com/powerfullz/override-rules/commit/9902b55a85edc20a59e15b41bf4cdaf83836b156))
+## [2.7.6](https://github.com/powerfullz/override-rules/compare/src-v2.7.5...src-v2.7.6) (2026-09-16)
+
+
+### Bug Fixes
+
+- 升级 brace-expansion 至 5.0.12 修复高危 DoS 告警 ([ba5d324](https://github.com/powerfullz/override-rules/commit/ba5d32433da3746ec75d6fbe404c123efc251242))
+## [2.7.5](https://github.com/powerfullz/override-rules/compare/src-v2.7.4...src-v2.7.5) (2026-09-16)
+
+
+### Build
+
+- 恢复 TypeScript 7 类型检查工具链与 TS lint 覆盖 ([5d12e06](https://github.com/powerfullz/override-rules/commit/5d12e064988de66329db4fd232ebc1309825ca79))
 
 
 ### CI
 
-- Purge 增加 @dist 精确变体,修复版本化缓存清不掉的问题 ([6fb9de3](https://github.com/powerfullz/override-rules/commit/6fb9de3b19aa5a5e73f09828880bc2b67b710366))
+- 修复 release/preview 调用已删除的 typecheck 脚本 ([2db0c1c](https://github.com/powerfullz/override-rules/commit/2db0c1cf8c898aff3ff13ac00c68cf419c4be5ba))
+
+
+### Documentation
+
+- 说明双 TypeScript 版本设计与 typecheck 工作流 ([17816dc](https://github.com/powerfullz/override-rules/commit/17816dc2313b3a576cb58712bee2a37fb6d959bd))
 
 
 ### Features
 
-- 加密货币组补全 Polymarket 官方域名(poly.market/polymarket.app/polymarket.gg) ([311ccb1](https://github.com/powerfullz/override-rules/commit/311ccb1c4028ae539c6e819b5ea71c54d4402ac0))
-## [2.5.7](https://github.com/powerfullz/override-rules/compare/src-v2.5.6...src-v2.5.7) (2026-08-08)
+- 添加金融服务代理组 ([fa263d8](https://github.com/powerfullz/override-rules/commit/fa263d89a73a03f5b96ba1e19bf4c1e441b79550))
+
+
+### Other
+
+- Agent Host changes for agents/update-architecture-doc (#69) ([9964641](https://github.com/powerfullz/override-rules/commit/996464115236585d946455d95153197ebc478455))
+- Update package-lock.json and package.json for TypeScript 7 migration ([bada7d2](https://github.com/powerfullz/override-rules/commit/bada7d2955b9ad14e30556f60a82d684bd759041))
+- Refactor CI workflow and update documentation for TypeScript 7 migration
+
+- Adjust CI configuration in ci.yaml
+- Update HOW_TO_CUSTOMISE.md for clarity
+- Refine eslint.config.mjs to improve linting rules
+- Optimize package-lock.json and package.json for dependencies ([9abb81a](https://github.com/powerfullz/override-rules/commit/9abb81a06d884a3566b5382674584959b5c8a249))
+- Agent Host changes for agents/typescript-7-migration-and-dependencies ([d0eadd9](https://github.com/powerfullz/override-rules/commit/d0eadd9dedeabfe992f13ae9b5353436afbfee6a))
+## [2.7.4](https://github.com/powerfullz/override-rules/compare/src-v2.7.3...src-v2.7.4) (2026-09-09)
+
+
+### Other
+
+- Quic 参数的逻辑写反了
+Fixes #66 ([c149a40](https://github.com/powerfullz/override-rules/commit/c149a400b33b4fe14cef9764bea1f53ff167a4e7))
+## [2.7.3](https://github.com/powerfullz/override-rules/compare/src-v2.7.2...src-v2.7.3) (2026-09-08)
+
+
+### Bug Fixes
+
+- 删除多余的proxy-server-nameserver ([9c29203](https://github.com/powerfullz/override-rules/commit/9c292033ed82ace9b209253ca8b51a1005ec94f1))
+- 仅合并必要的字段 ([85ede6f](https://github.com/powerfullz/override-rules/commit/85ede6fe10c2f1659d0852e0e07a22d4c53249b7))
+
+
+### Chores
+
+- Update dependencies ([2ec6f64](https://github.com/powerfullz/override-rules/commit/2ec6f645198e824885ab2aee4b94eafc8d4d19d1))
+
+
+### Other
+
+- Update readme ([b503979](https://github.com/powerfullz/override-rules/commit/b5039799646aedbcb53fac1323c8f852da536b93))
+## [2.7.2](https://github.com/powerfullz/override-rules/compare/src-v2.7.1...src-v2.7.2) (2026-08-21)
+
+
+### Bug Fixes
+
+- 继承原配置的`hosts`字段 ([ae276fc](https://github.com/powerfullz/override-rules/commit/ae276fcf3825c9b437360a1738bac1fdd80fb69f))
+## [2.7.1](https://github.com/powerfullz/override-rules/compare/src-v2.7.0...src-v2.7.1) (2026-08-21)
+
+
+### Bug Fixes
+
+- Remove unused `PROXY_GROUPS.SSH` constant ([b48d845](https://github.com/powerfullz/override-rules/commit/b48d84510b5325062aab7cab433a9c8d4d7d4105))
+- Merge upstream DNS configuration ([5764bf4](https://github.com/powerfullz/override-rules/commit/5764bf4541b8a1de1a2b29c6ce61781b082e6ebb))
+
+
+### Documentation
+
+- 补充 JSDocs ([a2e5d8f](https://github.com/powerfullz/override-rules/commit/a2e5d8faec297ae1a47967b6d20f74fd78efb1f8))
+## [2.7.0](https://github.com/powerfullz/override-rules/compare/src-v2.6.0...src-v2.7.0) (2026-08-20)
+
+
+### Bug Fixes
+
+- Remove redundant `default-nameserver` ([7868631](https://github.com/powerfullz/override-rules/commit/786863149092cfe040a279c1bbf201a2ceb59dfd))
+- 修正`fake-ip-filter`内容 ([0f806c8](https://github.com/powerfullz/override-rules/commit/0f806c884a1b720de648baa3f4e12bb2690e4dcf))
 
 
 ### Features
 
-- 加密货币组加入 Polymarket 域名;修复规则集/图标 URL 指向上游问题(改为本 fork @main);发布流程增加规则集 CDN purge ([f1146ec](https://github.com/powerfullz/override-rules/commit/f1146ecf10d10f12eba9dd8f86522414ba165073))
-## [2.5.6](https://github.com/powerfullz/override-rules/compare/src-v2.5.5...src-v2.5.6) (2026-08-08)
+- Remove SSH proxy group ([582f322](https://github.com/powerfullz/override-rules/commit/582f3229ad32a0b0016a98435a344642b2753f10))
+## [2.6.0](https://github.com/powerfullz/override-rules/compare/src-v2.5.6...src-v2.6.0) (2026-08-20)
+
+
+### Documentation
+
+- 新增关于 Tailscale 的说明 ([ce94656](https://github.com/powerfullz/override-rules/commit/ce94656631a8a322c032c6e333949829f3682f06))
 
 
 ### Features
 
-- 默认 threshold 改为 1,自建单节点地区也生成分组 ([b3b8372](https://github.com/powerfullz/override-rules/commit/b3b8372845691d3618cc4fd8d331cda5cd330f2c))
+- 完善 Tailscale 功能 ([7971888](https://github.com/powerfullz/override-rules/commit/797188846865de703d5f9b2990a55afa92a08389))
+- 增加 tailscale 分流雏形 ([a77954b](https://github.com/powerfullz/override-rules/commit/a77954b54d505ebafbeb4291134aa2fea9822cbb))
+
+
+### Other
+
+- 优化 tailscale 分组显示 ([a9b65f3](https://github.com/powerfullz/override-rules/commit/a9b65f37146d92dd8a8612378ee991c7e96b96dd))
+## [2.5.6](https://github.com/powerfullz/override-rules/compare/src-v2.5.5...src-v2.5.6) (2026-08-14)
+
+
+### Features
+
+- 为手动选择代理组完整书写节点名称 ([de96f23](https://github.com/powerfullz/override-rules/commit/de96f230d688fdaa5106e9a7ac5372e061de57c8))
 ## [2.5.5](https://github.com/powerfullz/override-rules/compare/src-v2.5.4...src-v2.5.5) (2026-06-30)
 
 

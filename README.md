@@ -15,6 +15,16 @@
 
 > 本项目为本人自用，欢迎交流建议（Issue/PR）。如无特殊反馈，将优先满足个人需求与体验优化。
 
+## 本 fork 相对上游的定制
+
+基于上游 `powerfullz/override-rules` 2.9.1，仅保留以下差异：
+
+* **「微信消息」组**：`select`，候选 `DIRECT` / `选择代理`（默认直连），位置紧随「搜狗输入法」；规则集取 [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script) 的 Clash 版 WeChat 列表，`RULE-SET,WeChat` 紧随 `SogouInput`
+* **香港节点组固定 `select`**（手动选择），其余地区组仍随 `grouptype` 参数
+* **`threshold` 默认 1**：单节点地区（如只有一台的韩国）也单独成组
+* **polymarket 内联**：`polymarket.com` / `.cash` / `.app` / `.gg` / `poly.market` 直接写进「加密货币」组（GEOSITE 未收录）
+* **release workflow 额外 purge `@dist` 精确变体**，保证客户端使用的链接即时拿到新构建
+
 [点击访问 Forgejo 上的镜像](https://git.l3zc.com/powerfullz/override-rules)
 
 ### AFF
@@ -25,11 +35,11 @@
 
 目前我的主力机场，也是一家老牌一线机场了，线路扎实，冗余足够，实验性节点0.2倍率，部分地区的高级节点是家宽落地，用起来还是很舒服的。
 
-#### 星岛梦
+#### CNIX
 
-[注册链接](https://luics.xdmvipaff.cc/#/?code=MMB4xSlc)
+[注册链接](https://nozomi.wtf/auth/register?code=2d50f605de)
 
-星岛梦是一家 2025 年 12 月刚开业的机场，机场主在测试的时候就来找我了，我因此有幸从早期测试阶段便开始关注，见证了机场主熬夜修线路换落地的过程，目前体验还不错。算上日常折扣性价比还可以，大家可以月付体验一下。
+开了很多年的一家机场，目前有各种针对不同运营商的优化线路。可玩性还是很高的，缺点就是审计规则比较多，而且禁止测速。
 
 ### 使用方法
 
@@ -62,14 +72,16 @@
 *   `keepalive`：启用 TCP Keep Alive（默认 false）[^fn2]
 *   `fakeip`：DNS 增强模式使用 `fake-ip` 而不是 `redir-host`（开启后可能有助于解决 TUN 模式无法上网的问题；未传参时默认 `true`，显式传 `false` 时使用 `redir-host`）
 *   `quic`：允许 QUIC 流量（UDP 443，默认 false）[^quic]
-*   `regex`：各国家/地区代理组改用 `include-all` + 正则过滤模式，由 Mihomo 内核在运行时按正则动态筛选节点，而非在脚本执行时枚举节点名称（默认 false）[^regex]
+*   `regex`：各国家/地区代理组与分组模式下的「手动选择」组改用 `include-all` 模式，由 Mihomo 内核在运行时动态填充节点（地区组再附加正则 `filter`）；展平模式下的各服务组也直接使用同一套展平节点候选（`regex=true` 时为 `include-all`，并通过 `exclude-filter` 排除落地节点与 Tailscale 节点），而非在脚本执行时枚举节点名称（默认 false）[^regex]
 *   `tun`：启用 TUN 模式（gvisor 栈，自动配置路由排除地址与 DNS 劫持，默认 false）
-*   `threshold`：国家/地区节点数量小于该值时不显示分组（默认 1，自建单节点地区也能显示分组）
+*   `threshold`：国家/地区节点数量小于该值时不显示分组（**本 fork 默认 1**，上游默认 2）；过滤后不足 2 个地区时自动展平，不再生成地区组
 
 > **向后兼容**：旧的 `loadbalance` 参数仍然可用。当 `grouptype` 未指定时，`loadbalance=true` 等价于 `grouptype=2`，`loadbalance=false` 等价于 `grouptype=1`。
 
+> **地区组展平**：`threshold` 过滤后不足 2 个地区时，`选择代理`、`自动选择`、`故障转移` 会直接使用非落地节点（存在落地节点时还会引用「落地节点」组），不会生成 `XX节点` 地区组，也不会生成与 `选择代理` 高度重合的「手动选择」组；各服务组也不再引用 `选择代理`，而是直接使用同一份展平节点来源。Tailscale 节点不会进入这些展平候选。`threshold=1` 且至少 2 个地区达标时仍按地区分组，并保留「手动选择」组。当某个代理组的候选列表为空时，构造层会自动补入 `DIRECT`（启用 `include-all` 的组除外），因此空订阅或全落地也不会产生空组。
+
 [^quic]: 默认屏蔽了 QUIC 流量防止节点 UDP 性能不佳影响上网体验，如果确信节点质量良好，建议设置为 true。
-[^regex]: 默认情况下覆写脚本会直接把节点都筛选好，如果想让内核来筛（比如，你在 Clash Party 客户端里额外添加了自建节点，想直接通过正则表达式筛选进入配置文件）那就打开吧。
+[^regex]: 默认情况下覆写脚本会直接把节点都筛选好，如果想让内核来筛（比如，你在 Clash Party 客户端里额外添加了自建节点，想直接通过正则表达式筛选进入配置文件）那就打开吧。展平模式下同样使用 `include-all`，并通过 `exclude-filter` 排除落地节点与 Tailscale 节点，避免链式代理形成循环，也避免 Tailscale 混入通用选择列表。
 
 说明：支持字符串 true/false 或 1/0；。注：预生成的 YAML 格式覆写（`yamls/` 目录）固定使用正则模式，不受此参数影响。
 
@@ -95,7 +107,7 @@ https://raw.githubusercontent.com/powerfullz/override-rules/refs/heads/preview/c
 
 ### 关于部分特殊代理组的说明
 
-**静态资源**：包含所有常见静态资源 CDN 域名、对象存储域名。大部分网站的静态资源（如图片、视频、音频、字体、JS、CSS）都有独立域名、不设置风控措施、不设置鉴权，这些静态资源可以使用 IP 不一定干净（例如 IDC 类 IP）、但是带宽更大、延时更低、而且有和大部分主流 CDN（如 Cloudflare、Akamai、Fastly、EdgeCast）在 IXP 有互联的网络出口。一般就实践经验来看，在正常上网中这部分域名产生的流量占据约 70% 左右。如果你在使用商业性质的远端策略服务提供商、且该服务上提供了低倍率节点，你可以将这部分域名分流至低倍率节点以节省流量。[^fn1]
+**静态资源**：包含所有常见静态资源 CDN 域名、对象存储域名。大部分网站的静态资源（如图片、视频、音频、字体、JS、CSS）都有独立域名、不设置风控措施、不设置鉴权，这些静态资源可以使用 IP 不一定干净（例如 IDC 类 IP）、但是带宽更大、延时更低、而且有和大部分主流 CDN（如 Cloudflare、Akamai、Fastly、EdgeCast）在 IXP 有互联的网络出口。一般就实践经验来看，在正常上网中这部分域名产生的流量占据约 70% 左右。如果你在使用商业性质的远端策略服务提供商、且该服务上提供了低倍率节点，你可以将这部分域名分流至低倍率节点以节省流量。检测到「低倍率节点」组时，本组会自动将其置于候选首位，其余候选保持正常顺序。[^fn1]
 
 [^fn1]: 来源：[我有特别的 Surge 配置和使用技巧](https://blog.skk.moe/post/i-have-my-unique-surge-setup/)
 
@@ -107,9 +119,25 @@ https://raw.githubusercontent.com/powerfullz/override-rules/refs/heads/preview/c
 
 ### 关于链式代理的说明
 
-对于使用机场线路配合自行购买的落地机进行链式代理的情况，在 Substore 添加自建节点时，加入`dialer-proxy: "前置代理"`脚本即可自动识别，并新增「前置代理」和「落地节点」两个代理组。
+对于使用机场线路配合自行购买的落地机进行链式代理的情况，在 Substore 添加自建节点时，加入`dialer-proxy: "前置代理"`脚本即可自动识别，并新增「前置代理」和「落地节点」两个代理组。检测到落地节点后，地区分类只扫描非落地节点；若订阅全部由落地节点组成，「前置代理」组仅保留 `DIRECT`。
 
 ![新增的代理组](img/dialer-group.png) ![如何配置自建节点](img/dialer-example.png)
+
+### 关于 Tailscale 的说明
+
+Mihomo 内核在近期的更新中支持了 Tailscale 出站，这覆写规则也做出了更新，当检测到订阅中存在`tailscale`类型的节点时，会自动配置相关的代理组、Tun 配置和分流规则，开箱即用，支持 Magic DNS，以下是 Tailscale 节点配置的示例：
+
+「Tailscale」代理组默认带有 `hidden: true`，不会显示在客户端的代理组列表中；Tailscale 节点也不会进入「手动选择」、展平模式下的 `选择代理` / `自动选择` / `故障转移` / 各服务组，以及「前置代理」等常规候选列表，仅通过 `100.64.0.0/10`、`fd7a:115c:a1e0::/48` 和 `ts.net` 的定向分流规则使用。
+
+```yaml
+proxies:
+  - name: "Tailscale出口"   # 注意节点名称不能为 Tailscale，否则会和代理组重名造成启动出错
+    type: tailscale
+    auth-key: tskey-auth-xxxxxxxx
+    control-url: https://controlplane.tailscale.com
+    ephemeral: true
+    udp: true
+```
 
 ### 关于自动生成的 YAML 格式覆写
 

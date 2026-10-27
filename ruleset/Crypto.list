@@ -5,7 +5,6 @@ DOMAIN-SUFFIX,bitcointalk.org
 DOMAIN-SUFFIX,aex.com
 DOMAIN-SUFFIX,bibox.com
 DOMAIN-SUFFIX,bitfinex.com
-DOMAIN-SUFFIX,bitget.com
 DOMAIN-SUFFIX,bithumb.com
 DOMAIN-SUFFIX,bitmex.com
 DOMAIN-SUFFIX,bitstamp.net
@@ -311,10 +310,3 @@ DOMAIN-SUFFIX,chippay.com
 
 # UniSat
 DOMAIN-SUFFIX,unisat.io
-
-# Polymarket
-DOMAIN-SUFFIX,polymarket.com
-DOMAIN-SUFFIX,polymarket.cash
-DOMAIN-SUFFIX,polymarket.app
-DOMAIN-SUFFIX,polymarket.gg
-DOMAIN-SUFFIX,poly.market
