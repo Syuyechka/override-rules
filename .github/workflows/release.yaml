@@ -168,4 +168,6 @@ jobs:
           set -euo pipefail
 
           curl -fsS "https://purge.jsdelivr.net/gh/${{ github.repository }}/convert.min.js"
+          # 客户端用的是 @dist 链接，必须带精确变体单独 purge，否则清不到缓存
+          curl -fsS "https://purge.jsdelivr.net/gh/${{ github.repository }}@dist/convert.min.js"
           curl -fsS "https://purge.jsdelivr.net/gh/${{ github.repository }}@${{ env.VERSION }}/convert.min.js"

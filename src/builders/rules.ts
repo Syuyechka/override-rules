@@ -34,6 +34,12 @@ export function buildRules({ quicEnabled, hasTailscale }: BuildRulesInput): stri
         ruleSet("CDNResources", PROXY_GROUPS.STATIC_RESOURCES),
         ruleSet("AdditionalCDNResources", PROXY_GROUPS.STATIC_RESOURCES),
         `GEOSITE,category-cryptocurrency,${PROXY_GROUPS.CRYPTO}`,
+        // 唯一保留的定制：polymarket 未被 GEOSITE category-cryptocurrency 收录，内联到加密货币组
+        `DOMAIN-SUFFIX,polymarket.com,${PROXY_GROUPS.CRYPTO}`,
+        `DOMAIN-SUFFIX,polymarket.cash,${PROXY_GROUPS.CRYPTO}`,
+        `DOMAIN-SUFFIX,polymarket.app,${PROXY_GROUPS.CRYPTO}`,
+        `DOMAIN-SUFFIX,polymarket.gg,${PROXY_GROUPS.CRYPTO}`,
+        `DOMAIN-SUFFIX,poly.market,${PROXY_GROUPS.CRYPTO}`,
         `GEOSITE,category-finance,${PROXY_GROUPS.FINANCE}`,
         `GEOSITE,category-ai-!cn,${PROXY_GROUPS.AI_SERVICE}`,
         `GEOSITE,bilibili,${PROXY_GROUPS.BILIBILI}`,
