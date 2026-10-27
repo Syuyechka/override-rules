@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.10.0](https://github.com/powerfullz/override-rules/compare/src-v2.9.1...src-v2.10.0) (2026-10-27)
+
+
+### Features
+
+- Use wool_scripts wechat icon for WeChat group ([1261ccf](https://github.com/powerfullz/override-rules/commit/1261ccf7a2ab33c7db78a014d80045bb7fbf54df))
+- WeChat group defaults to DIRECT ([eeb4712](https://github.com/powerfullz/override-rules/commit/eeb47125c5557920a9b21aba7fa605ef1c52714c))
+- Add WeChat group, keep HK manual-select and per-node KR group ([f4eef5c](https://github.com/powerfullz/override-rules/commit/f4eef5cdac1d09fe640f2c008c16f75f43a3d183))
+- Sync upstream 2.9.1, keep only polymarket customisation ([269e7b6](https://github.com/powerfullz/override-rules/commit/269e7b6504f97e354c8e20b1c8bd1c0c22c227ba))
+
+
+### Other
+
+- Sync upstream override-rules 2.9.1 (fork customisations: WeChat group, HK select, threshold=1, polymarket, @dist purge) ([fb59397](https://github.com/powerfullz/override-rules/commit/fb59397fa96e0982d92d31412bd8f7ec6ea95b0e))
 ## [2.9.1](https://github.com/powerfullz/override-rules/compare/src-v2.9.0...src-v2.9.1) (2026-10-25)
 
 
@@ -190,7 +204,12 @@ Fixes #66 ([c149a40](https://github.com/powerfullz/override-rules/commit/c149a40
 ### Features
 
 - Remove SSH proxy group ([582f322](https://github.com/powerfullz/override-rules/commit/582f3229ad32a0b0016a98435a344642b2753f10))
-## [2.6.0](https://github.com/powerfullz/override-rules/compare/src-v2.5.6...src-v2.6.0) (2026-08-20)
+## [2.6.0](https://github.com/powerfullz/override-rules/compare/src-v2.5.15...src-v2.6.0) (2026-08-20)
+
+
+### Chores
+
+- Drop now-unused buildList import in proxy_groups ([227911b](https://github.com/powerfullz/override-rules/commit/227911bb4ab487378b84e925cb344c8c3f3dc866))
 
 
 ### Documentation
@@ -202,17 +221,77 @@ Fixes #66 ([c149a40](https://github.com/powerfullz/override-rules/commit/c149a40
 
 - 完善 Tailscale 功能 ([7971888](https://github.com/powerfullz/override-rules/commit/797188846865de703d5f9b2990a55afa92a08389))
 - 增加 tailscale 分流雏形 ([a77954b](https://github.com/powerfullz/override-rules/commit/a77954b54d505ebafbeb4291134aa2fea9822cbb))
+- 为手动选择代理组完整书写节点名称 ([de96f23](https://github.com/powerfullz/override-rules/commit/de96f230d688fdaa5106e9a7ac5372e061de57c8))
 
 
 ### Other
 
 - 优化 tailscale 分组显示 ([a9b65f3](https://github.com/powerfullz/override-rules/commit/a9b65f37146d92dd8a8612378ee991c7e96b96dd))
-## [2.5.6](https://github.com/powerfullz/override-rules/compare/src-v2.5.5...src-v2.5.6) (2026-08-14)
+## [2.5.15](https://github.com/powerfullz/override-rules/compare/src-v2.5.14...src-v2.5.15) (2026-09-21)
 
 
 ### Features
 
-- 为手动选择代理组完整书写节点名称 ([de96f23](https://github.com/powerfullz/override-rules/commit/de96f230d688fdaa5106e9a7ac5372e061de57c8))
+- Remove Zoom proxy group ([529c3e6](https://github.com/powerfullz/override-rules/commit/529c3e69f79084e8fa288ace1d9ac140d8a5a140))
+## [2.5.14](https://github.com/powerfullz/override-rules/compare/src-v2.5.13...src-v2.5.14) (2026-09-16)
+
+
+### Other
+
+- Add bitget.com to Crypto list ([dc36a83](https://github.com/powerfullz/override-rules/commit/dc36a832890285787bc70fd09c356ddbc4f57a58))
+## [2.5.13](https://github.com/powerfullz/override-rules/compare/src-v2.5.12...src-v2.5.13) (2026-09-07)
+
+
+### Other
+
+- 香港节点组固定为 select 手动选择 ([a9d802d](https://github.com/powerfullz/override-rules/commit/a9d802d69bcc3c47ed946c6b209a03a31845ed20))
+## [2.5.12](https://github.com/powerfullz/override-rules/compare/src-v2.5.11...src-v2.5.12) (2026-08-14)
+
+
+### Features
+
+- Zoom 自动分流(Zoom.list 规则集:zoom.us/com/com.cn/gov)→ Zoom 代理组 ([38f9cc4](https://github.com/powerfullz/override-rules/commit/38f9cc4de95135ac01772e854032e0c0a5596a6e))
+## [2.5.11](https://github.com/powerfullz/override-rules/compare/src-v2.5.10...src-v2.5.11) (2026-08-14)
+
+
+### Features
+
+- 新增 Zoom 代理组(日本/韩国/美国/香港/DIRECT),自托管品牌图标 ([8c10940](https://github.com/powerfullz/override-rules/commit/8c10940c30ce61ccf3d0a0a9a724fc9661d543f6))
+## [2.5.10](https://github.com/powerfullz/override-rules/compare/src-v2.5.9...src-v2.5.10) (2026-08-08)
+
+
+### Refactoring
+
+- 移除 polymarket 内联规则,域名统一收敛到 ruleset/Crypto.list ([3ecd36f](https://github.com/powerfullz/override-rules/commit/3ecd36fd268e74d777feb6b3ce8ce5608bbc5ac4))
+## [2.5.9](https://github.com/powerfullz/override-rules/compare/src-v2.5.8...src-v2.5.9) (2026-08-08)
+
+
+### Features
+
+- Polymarket 域名内联进规则列表,不依赖 rule-provider 24h 轮询即时生效 ([c6effe6](https://github.com/powerfullz/override-rules/commit/c6effe605e3413c269e8186346a1fba554f8ebac))
+## [2.5.8](https://github.com/powerfullz/override-rules/compare/src-v2.5.7...src-v2.5.8) (2026-08-08)
+
+
+### CI
+
+- Purge 增加 @dist 精确变体,修复版本化缓存清不掉的问题 ([6fb9de3](https://github.com/powerfullz/override-rules/commit/6fb9de3b19aa5a5e73f09828880bc2b67b710366))
+
+
+### Features
+
+- 加密货币组补全 Polymarket 官方域名(poly.market/polymarket.app/polymarket.gg) ([311ccb1](https://github.com/powerfullz/override-rules/commit/311ccb1c4028ae539c6e819b5ea71c54d4402ac0))
+## [2.5.7](https://github.com/powerfullz/override-rules/compare/src-v2.5.6...src-v2.5.7) (2026-08-08)
+
+
+### Features
+
+- 加密货币组加入 Polymarket 域名;修复规则集/图标 URL 指向上游问题(改为本 fork @main);发布流程增加规则集 CDN purge ([f1146ec](https://github.com/powerfullz/override-rules/commit/f1146ecf10d10f12eba9dd8f86522414ba165073))
+## [2.5.6](https://github.com/powerfullz/override-rules/compare/src-v2.5.5...src-v2.5.6) (2026-08-08)
+
+
+### Features
+
+- 默认 threshold 改为 1,自建单节点地区也生成分组 ([b3b8372](https://github.com/powerfullz/override-rules/commit/b3b8372845691d3618cc4fd8d331cda5cd330f2c))
 ## [2.5.5](https://github.com/powerfullz/override-rules/compare/src-v2.5.4...src-v2.5.5) (2026-06-30)
 
 
