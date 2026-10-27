@@ -183,6 +183,7 @@ export const serviceGroups: ServiceGroupDef[] = [
     {
         name: PROXY_GROUPS.WECHAT,
         icon: ICONS.wechat,
-        proxies: () => [PROXY_GROUPS.SELECT, "DIRECT"],
+        // 默认直连(列表首项即默认选中)，需要走代理再手动切到「选择代理」
+        proxies: () => ["DIRECT", PROXY_GROUPS.SELECT],
     },
 ];
