@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.10.2](https://github.com/powerfullz/override-rules/compare/src-v2.10.1...src-v2.10.2) (2026-11-01)
+
+
+### Bug Fixes
+
+- Correct chain node names and front proxy membership ([05485dd](https://github.com/powerfullz/override-rules/commit/05485dd2927ecf8c1f12667bac5ebf72f8958e44))
 ## [2.10.1](https://github.com/powerfullz/override-rules/compare/src-v2.10.0...src-v2.10.1) (2026-11-01)
 
 
