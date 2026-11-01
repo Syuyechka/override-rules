@@ -10,11 +10,4 @@ export const ARG_DEFAULTS = {
     countryThreshold: 1,
     /** 默认使用 fake-ip 增强模式。 */
     fakeIPEnabled: true,
-    /**
-     * 链式代理：命中这些关键词的节点会被打上 `dialer-proxy: "前置代理"`，从而生成
-     * 「前置代理」/「落地节点」两组。留空 = 不启用（完全跟随订阅里的 dialer-proxy）。
-     * 当前启用：香港-Wawo（实际节点名「香港-Wawo | IPV6」）、韩国-Hosthatch。
-     * 注意必须写「韩国-Hosthatch」而不是「Hosthatch」——后者会连「美国-Hosthatch」一起标成落地。
-     */
-    chainKeywords: ["香港-Wawo", "韩国-Hosthatch"] as string[],
 } as const;

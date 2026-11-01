@@ -23,7 +23,6 @@
 * **香港节点组固定 `select`**（手动选择），其余地区组仍随 `grouptype` 参数
 * **`threshold` 默认 1**：单节点地区（如只有一台的韩国）也单独成组
 * **polymarket 内联**：`polymarket.com` / `.cash` / `.app` / `.gg` / `poly.market` 直接写进「加密货币」组（GEOSITE 未收录）
-* **链式代理开关 `chain`**：按节点名关键词把节点标记为落地节点（`dialer-proxy: "前置代理"`）；当前落地点为「香港-Wawo」与「韩国-Hosthatch」，「前置代理」组单独列举美国 + 日本节点，末尾 `DIRECT`
 * **release workflow 额外 purge `@dist` 精确变体**，保证客户端使用的链接即时拿到新构建
 
 [点击访问 Forgejo 上的镜像](https://git.l3zc.com/powerfullz/override-rules)
@@ -76,7 +75,6 @@
 *   `regex`：各国家/地区代理组与分组模式下的「手动选择」组改用 `include-all` 模式，由 Mihomo 内核在运行时动态填充节点（地区组再附加正则 `filter`）；展平模式下的各服务组也直接使用同一套展平节点候选（`regex=true` 时为 `include-all`，并通过 `exclude-filter` 排除落地节点与 Tailscale 节点），而非在脚本执行时枚举节点名称（默认 false）[^regex]
 *   `tun`：启用 TUN 模式（gvisor 栈，自动配置路由排除地址与 DNS 劫持，默认 false）
 *   `threshold`：国家/地区节点数量小于该值时不显示分组（**本 fork 默认 1**，上游默认 2）；过滤后不足 2 个地区时自动展平，不再生成地区组
-*   `chain`：链式代理，逗号分隔的节点名关键词；命中关键词的节点会被打上 `dialer-proxy: "前置代理"`，从而生成「前置代理」/「落地节点」两组（默认空 = 不启用）。**Clash Party 无法传参，启用需把关键词写进 `src/args/schema.ts` 的 `chainKeywords` 默认值**
 
 > **向后兼容**：旧的 `loadbalance` 参数仍然可用。当 `grouptype` 未指定时，`loadbalance=true` 等价于 `grouptype=2`，`loadbalance=false` 等价于 `grouptype=1`。
 

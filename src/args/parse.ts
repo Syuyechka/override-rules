@@ -24,20 +24,6 @@ function parseGroupType(args: ScriptArgs): GroupType {
 }
 
 /**
- * 解析 `chain` 参数：逗号分隔的节点名关键词，命中即作为落地节点。
- * 空值 / 纯空白返回默认值（默认空数组 = 不启用链式）。
- */
-function parseChainKeywords(args: ScriptArgs): string[] {
-    const raw = args.chain;
-    if (typeof raw !== "string" || raw.trim() === "") return [...ARG_DEFAULTS.chainKeywords];
-
-    return raw
-        .split(",")
-        .map((keyword) => keyword.trim())
-        .filter((keyword) => keyword.length > 0);
-}
-
-/**
  * 解析传入的脚本参数，并转换为内部使用的功能开关。
  * @param args - 从脚本环境（如 Substore）传入的原始参数对象
  */
@@ -52,6 +38,5 @@ export function buildFeatureFlags(args: ScriptArgs): FeatureFlags {
         regexFilter: parseBool(args.regex),
         tunEnabled: parseBool(args.tun),
         countryThreshold: parseNumber(args.threshold, ARG_DEFAULTS.countryThreshold),
-        chainKeywords: parseChainKeywords(args),
     };
 }

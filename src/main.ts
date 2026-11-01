@@ -19,7 +19,6 @@ https://github.com/powerfullz/override-rules
 */
 
 import { buildFeatureFlags } from "./args/parse";
-import { applyChainTag } from "./analysis/chain";
 import { analyzeNodes } from "./analysis/classify";
 import { buildBaseLists } from "./builders/selectors";
 import { assembleConfig } from "./builders/config";
@@ -50,8 +49,6 @@ function main(config: ClashConfig): ClashConfig {
     }
 
     const flags = buildFeatureFlags(readRawArgs());
-    // 链式代理：先按关键词打上 dialer-proxy，再分类，才能生成「前置代理」/「落地节点」组。
-    applyChainTag(config.proxies, flags.chainKeywords);
     const nodes = analyzeNodes(config.proxies, flags.countryThreshold);
     const lists = buildBaseLists({
         landing: nodes.landing,

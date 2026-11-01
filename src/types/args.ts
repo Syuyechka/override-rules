@@ -14,8 +14,6 @@ export interface ScriptArgs {
     regex?: string;
     threshold?: string;
     tun?: string;
-    /** 链式代理：命中这些关键词的节点会被打上 `dialer-proxy: "前置代理"`（逗号分隔）。 */
-    chain?: string;
 }
 
 /** 地区代理组类型：0=select（手动选择），1=url-test（自动测速），2=load-balance（负载均衡）。 */
@@ -32,6 +30,4 @@ export interface FeatureFlags {
     regexFilter: boolean;
     countryThreshold: number;
     tunEnabled: boolean;
-    /** 命中即作为落地节点（打上 `dialer-proxy: "前置代理"`）的节点名关键词。 */
-    chainKeywords: string[];
 }
