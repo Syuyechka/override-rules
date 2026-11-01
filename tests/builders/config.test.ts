@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 
 import { buildFeatureFlags } from "../../src/args/parse";
+import { applyChainTag } from "../../src/analysis/chain";
 import { analyzeNodes } from "../../src/analysis/classify";
 import { buildBaseLists } from "../../src/builders/selectors";
 import { assembleConfig } from "../../src/builders/config";
@@ -15,6 +16,7 @@ import type { ScriptArgs } from "../../src/types/args";
 function run(args: ScriptArgs, config: ClashConfig): ClashConfig {
     const flags = buildFeatureFlags(args);
     const proxies = config.proxies ?? [];
+    applyChainTag(proxies, flags.chainKeywords);
     const nodes = analyzeNodes(proxies, flags.countryThreshold);
     const lists = buildBaseLists({
         landing: nodes.landing,
@@ -188,7 +190,7 @@ describe("assembleConfig", () => {
         ]);
     });
 
-    it("展平 + regex 时前置代理仍显式排除落地节点", () => {
+    it("展平 + regex 时前置代理只列美国节点与 DIRECT（本 fork 定制，落地节点天然不在其中）", () => {
         const result = run(
             { regex: "true" },
             {
@@ -200,11 +202,8 @@ describe("assembleConfig", () => {
             }
         );
 
-        assert.deepEqual(group(result, PROXY_GROUPS.FRONT_PROXY)?.proxies, [
-            "DIRECT",
-            "香港01",
-            "香港02",
-        ]);
+        // 本 fork 的前置代理组固定为「美国节点 + DIRECT」，此用例没有美国节点 → 仅剩 DIRECT
+        assert.deepEqual(group(result, PROXY_GROUPS.FRONT_PROXY)?.proxies, ["DIRECT"]);
         assert.equal(group(result, PROXY_GROUPS.SELECT)?.["exclude-filter"], "^(?:落地A)$");
         assert.equal(group(result, PROXY_GROUPS.SELECT)?.["include-all"], true);
 
@@ -217,6 +216,28 @@ describe("assembleConfig", () => {
             PROXY_GROUPS.LANDING,
             PROXY_GROUPS.LOW_COST,
         ]);
+    });
+
+    it("前置代理组 = 美国各节点 + DIRECT，且不含落地节点（本 fork 定制）", () => {
+        const result = run(
+            {},
+            {
+                proxies: [
+                    { name: "香港01" },
+                    { name: "美国01" },
+                    { name: "美国02" },
+                    { name: "落地A", "dialer-proxy": "前置代理" },
+                ],
+            }
+        );
+
+        assert.deepEqual(group(result, PROXY_GROUPS.FRONT_PROXY)?.proxies, [
+            "美国01",
+            "美国02",
+            "DIRECT",
+        ]);
+        assert.equal(group(result, PROXY_GROUPS.FRONT_PROXY)?.type, "select");
+        assert.deepEqual(group(result, PROXY_GROUPS.LANDING)?.proxies, ["落地A"]);
     });
 
     it("只有台湾时服务组不引用未生成的地区组", () => {

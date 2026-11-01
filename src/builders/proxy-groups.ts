@@ -8,6 +8,7 @@
  */
 
 import { countriesMeta, COUNTRY_KEYS } from "../catalog/countries";
+import { buildFrontProxyCandidates } from "../catalog/front-proxy";
 import { countryGroupName, PROXY_GROUPS } from "../catalog/group-names";
 import { ICONS } from "../catalog/icons";
 import { LOW_COST_NODE_MATCHER } from "../catalog/low-cost";
@@ -42,7 +43,11 @@ function buildFrontGroups(ctx: GroupBuildContext): Array<ProxyGroup | null> {
         selectGroup(PROXY_GROUPS.SELECT, ICONS.select, ctx.lists.defaultSelector),
         manualGroup,
         ctx.nodes.landing
-            ? selectGroup(PROXY_GROUPS.FRONT_PROXY, ICONS.frontProxy, ctx.lists.frontProxySelector)
+            ? selectGroup(
+                  PROXY_GROUPS.FRONT_PROXY,
+                  ICONS.frontProxy,
+                  buildFrontProxyCandidates(ctx)
+              )
             : null,
         ctx.nodes.landing
             ? selectGroup(

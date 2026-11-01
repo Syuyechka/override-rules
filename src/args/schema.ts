@@ -13,7 +13,7 @@ export const ARG_DEFAULTS = {
     /**
      * 链式代理：命中这些关键词的节点会被打上 `dialer-proxy: "前置代理"`，从而生成
      * 「前置代理」/「落地节点」两组。留空 = 不启用（完全跟随订阅里的 dialer-proxy）。
-     * Clash Party 无法传参，因此要启用需直接把节点名关键词写在这里，例如 ["韩国-Hosthatch"]。
+     * 当前启用：香港-Wawo、韩国-Hosthatch 作为落地节点（前端走美国节点或 DIRECT）。
      */
-    chainKeywords: [] as string[],
+    chainKeywords: ["香港-Wawo", "Hosthatch"] as string[],
 } as const;
