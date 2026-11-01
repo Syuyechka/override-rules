@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.10.3](https://github.com/powerfullz/override-rules/compare/src-v2.10.2...src-v2.10.3) (2026-11-01)
+
+
+### Reverts
+
+- 回滚链式代理(撤销 898df9c/fd1d6d4/05485dd) ([161b80f](https://github.com/powerfullz/override-rules/commit/161b80f3dc00067750f35e2ccf7ecd60f13c8332))
 ## [2.10.2](https://github.com/powerfullz/override-rules/compare/src-v2.10.1...src-v2.10.2) (2026-11-01)
 
 
