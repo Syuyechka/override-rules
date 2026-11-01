@@ -23,7 +23,7 @@
 * **香港节点组固定 `select`**（手动选择），其余地区组仍随 `grouptype` 参数
 * **`threshold` 默认 1**：单节点地区（如只有一台的韩国）也单独成组
 * **polymarket 内联**：`polymarket.com` / `.cash` / `.app` / `.gg` / `poly.market` 直接写进「加密货币」组（GEOSITE 未收录）
-* **链式代理开关 `chain`**：按节点名关键词把节点标记为落地节点（`dialer-proxy: "前置代理"`），自动生成「前置代理」/「落地节点」两组；默认关闭
+* **链式代理开关 `chain`**：按节点名关键词把节点标记为落地节点（`dialer-proxy: "前置代理"`）；当前落地点为「香港-Wawo」与「韩国-Hosthatch」，「前置代理」组单独列举美国 + 日本节点，末尾 `DIRECT`
 * **release workflow 额外 purge `@dist` 精确变体**，保证客户端使用的链接即时拿到新构建
 
 [点击访问 Forgejo 上的镜像](https://git.l3zc.com/powerfullz/override-rules)
