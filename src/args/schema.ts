@@ -10,4 +10,10 @@ export const ARG_DEFAULTS = {
     countryThreshold: 1,
     /** 默认使用 fake-ip 增强模式。 */
     fakeIPEnabled: true,
+    /**
+     * 链式代理：命中这些关键词的节点会被打上 `dialer-proxy: "前置代理"`，从而生成
+     * 「前置代理」/「落地节点」两组。留空 = 不启用（完全跟随订阅里的 dialer-proxy）。
+     * Clash Party 无法传参，因此要启用需直接把节点名关键词写在这里，例如 ["韩国-Hosthatch"]。
+     */
+    chainKeywords: [] as string[],
 } as const;
