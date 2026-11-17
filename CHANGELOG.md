@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.11.0](https://github.com/powerfullz/override-rules/compare/src-v2.10.3...src-v2.11.0) (2026-11-17)
+
+
+### Features
+
+- 恢复链式代理组,前置代理以 DIRECT 打头供自由组合 ([ad51647](https://github.com/powerfullz/override-rules/commit/ad51647e5b3c66fc3c1cf1334a4716575b23502c))
 ## [2.10.3](https://github.com/powerfullz/override-rules/compare/src-v2.10.2...src-v2.10.3) (2026-11-01)
 
 
