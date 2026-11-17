@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.11.1](https://github.com/powerfullz/override-rules/compare/src-v2.11.0...src-v2.11.1) (2026-11-17)
+
+
+### Features
+
+- 落地只放 Zouter,前置改为全部其余节点 + DIRECT ([01fa5a7](https://github.com/powerfullz/override-rules/commit/01fa5a79e9caaf0dc074abe27d81ca1b1d8aa322))
 ## [2.11.0](https://github.com/powerfullz/override-rules/compare/src-v2.10.3...src-v2.11.0) (2026-11-17)
 
 
