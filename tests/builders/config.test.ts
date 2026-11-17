@@ -16,7 +16,7 @@ import type { ScriptArgs } from "../../src/types/args";
 function run(args: ScriptArgs, config: ClashConfig): ClashConfig {
     const flags = buildFeatureFlags(args);
     const proxies = config.proxies ?? [];
-    applyChainTag(proxies, flags.chainKeywords);
+    applyChainTag(proxies, flags.chainKeywords, flags.chainServers);
     const nodes = analyzeNodes(proxies, flags.countryThreshold);
     const lists = buildBaseLists({
         landing: nodes.landing,
@@ -190,7 +190,7 @@ describe("assembleConfig", () => {
         ]);
     });
 
-    it("展平 + regex 时前置代理只列美国节点与 DIRECT（本 fork 定制，落地节点天然不在其中）", () => {
+    it("展平 + regex 时前置代理 = DIRECT + 全部非落地节点（本 fork 定制）", () => {
         const result = run(
             { regex: "true" },
             {
@@ -202,8 +202,12 @@ describe("assembleConfig", () => {
             }
         );
 
-        // 本 fork 的前置代理组固定为「美国节点 + DIRECT」，此用例没有美国节点 → 仅剩 DIRECT
-        assert.deepEqual(group(result, PROXY_GROUPS.FRONT_PROXY)?.proxies, ["DIRECT"]);
+        // 本 fork：DIRECT 打头 + 全部非落地节点（落地A 被排除，绝不进前置）
+        assert.deepEqual(group(result, PROXY_GROUPS.FRONT_PROXY)?.proxies, [
+            "DIRECT",
+            "香港01",
+            "香港02",
+        ]);
         assert.equal(group(result, PROXY_GROUPS.SELECT)?.["exclude-filter"], "^(?:落地A)$");
         assert.equal(group(result, PROXY_GROUPS.SELECT)?.["include-all"], true);
 
@@ -218,7 +222,7 @@ describe("assembleConfig", () => {
         ]);
     });
 
-    it("前置代理组 = DIRECT + 美国/日本各节点，且不含落地节点（本 fork 定制）", () => {
+    it("前置代理组 = DIRECT + 全部非落地节点，且不含落地节点（本 fork 定制）", () => {
         const result = run(
             {},
             {
@@ -235,6 +239,7 @@ describe("assembleConfig", () => {
         // DIRECT 在首位 = 默认不链；需要链式时手动切到某个前置节点
         assert.deepEqual(group(result, PROXY_GROUPS.FRONT_PROXY)?.proxies, [
             "DIRECT",
+            "香港01",
             "美国01",
             "美国02",
             "日本01",

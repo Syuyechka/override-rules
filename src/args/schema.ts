@@ -11,10 +11,11 @@ export const ARG_DEFAULTS = {
     /** 默认使用 fake-ip 增强模式。 */
     fakeIPEnabled: true,
     /**
-     * 链式代理：命中这些关键词的节点会被打上 `dialer-proxy: "前置代理"`，从而生成
-     * 「前置代理」/「落地节点」两组。留空 = 不启用（完全跟随订阅里的 dialer-proxy）。
-     * 当前启用：香港-Wawo（实际节点名「香港-Wawo | IPV6」）、韩国-Hosthatch。
-     * 注意必须写「韩国-Hosthatch」而不是「Hosthatch」——后者会连「美国-Hosthatch」一起标成落地。
+     * 链式代理：命中「节点名关键词」或「server 地址」的节点会被打上 `dialer-proxy: "前置代理"`，
+     * 从而生成「前置代理」/「落地节点」两组。留空 = 不启用。
+     * 当前：落地节点只放「日本-Zouter」（Zouter 仅当落地，其余全部节点作为前置候选）。
      */
-    chainKeywords: ["香港-Wawo", "韩国-Hosthatch"] as string[],
+    chainKeywords: ["日本-Zouter"] as string[],
+    /** 按 server:port 打标（精确匹配），节点改名后仍生效；同一台机器有多个入站时必须带端口。 */
+    chainServers: ["216.23.122.158:11160"] as string[],
 } as const;

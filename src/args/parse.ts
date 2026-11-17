@@ -28,13 +28,17 @@ function parseGroupType(args: ScriptArgs): GroupType {
  * 空值 / 纯空白返回默认值（默认空数组 = 不启用链式）。
  */
 function parseChainKeywords(args: ScriptArgs): string[] {
-    const raw = args.chain;
-    if (typeof raw !== "string" || raw.trim() === "") return [...ARG_DEFAULTS.chainKeywords];
+    return parseCsv(args.chain, ARG_DEFAULTS.chainKeywords);
+}
+
+/** 通用解析：逗号分隔字符串 → 去空白后的数组；空值回退默认值。 */
+function parseCsv(raw: string | undefined, fallback: readonly string[]): string[] {
+    if (typeof raw !== "string" || raw.trim() === "") return [...fallback];
 
     return raw
         .split(",")
-        .map((keyword) => keyword.trim())
-        .filter((keyword) => keyword.length > 0);
+        .map((item) => item.trim())
+        .filter((item) => item.length > 0);
 }
 
 /**
@@ -53,5 +57,6 @@ export function buildFeatureFlags(args: ScriptArgs): FeatureFlags {
         tunEnabled: parseBool(args.tun),
         countryThreshold: parseNumber(args.threshold, ARG_DEFAULTS.countryThreshold),
         chainKeywords: parseChainKeywords(args),
+        chainServers: parseCsv(args["chain-server"], ARG_DEFAULTS.chainServers),
     };
 }
