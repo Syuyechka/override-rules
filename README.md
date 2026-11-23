@@ -19,7 +19,7 @@
 
 基于上游 `powerfullz/override-rules` 2.9.1，仅保留以下差异：
 
-* **「微信消息」组**：`select`，候选 `DIRECT` / `选择代理`（默认直连），位置紧随「搜狗输入法」；规则集取 [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script) 的 Clash 版 WeChat 列表，`RULE-SET,WeChat` 紧随 `SogouInput`
+* **「微信消息」组**：`select`，候选 `DIRECT`（首位 = 默认直连）/ 各地区节点组 / `选择代理`，位置紧随「搜狗输入法」；规则集取 [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script) 的 Clash 版 WeChat 列表，`RULE-SET,WeChat` 紧随 `SogouInput`
 * **香港节点组固定 `select`**（手动选择），其余地区组仍随 `grouptype` 参数
 * **`threshold` 默认 1**：单节点地区（如只有一台的韩国）也单独成组
 * **polymarket 内联**：`polymarket.com` / `.cash` / `.app` / `.gg` / `poly.market` 直接写进「加密货币」组（GEOSITE 未收录）

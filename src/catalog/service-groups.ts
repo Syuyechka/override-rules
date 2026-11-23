@@ -183,7 +183,12 @@ export const serviceGroups: ServiceGroupDef[] = [
     {
         name: PROXY_GROUPS.WECHAT,
         icon: ICONS.wechat,
-        // 默认直连(列表首项即默认选中)，需要走代理再手动切到「选择代理」
-        proxies: () => ["DIRECT", PROXY_GROUPS.SELECT],
+        // 默认直连(列表首项即默认选中)；其余候选 = 实际生成的各地区节点组 + 选择代理
+        // 地区组只列真正存在的(如某地区只有落地节点则该组不生成，这里不会出现悬空引用)
+        proxies: (ctx) => [
+            "DIRECT",
+            ...ctx.nodes.regionLayout.groupedCountries.map(countryGroupName),
+            PROXY_GROUPS.SELECT,
+        ],
     },
 ];
