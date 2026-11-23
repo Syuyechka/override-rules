@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.11.2](https://github.com/powerfullz/override-rules/compare/src-v2.11.1...src-v2.11.2) (2026-11-23)
+
+
+### Features
+
+- 微信消息组加入各地区节点组 ([7a8b151](https://github.com/powerfullz/override-rules/commit/7a8b151571d38bfa809f8f3e797dd9df763b66c4))
 ## [2.11.1](https://github.com/powerfullz/override-rules/compare/src-v2.11.0...src-v2.11.1) (2026-11-17)
 
 
